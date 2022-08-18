@@ -1,0 +1,386 @@
+<html lang="en">
+ <head> 
+  <title>SocialCreator.com</title> 
+  <meta charset="iso-8859-1"> 
+  <link rel="stylesheet" href="./style_intra.css"> 
+  <link rel="stylesheet" href="../jquery-ui-1.8.20.custom.css"> 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+  <script language="javascript">
+function fidioma()
+{
+	self.location="./intra.php?idioma="+document.getElementById("sel_idioma").value+"&idsesion=n9eaci62jk3q54uomtx80vgws1dhzrbyf7lp";
+}
+function falert(cad)
+{
+	document.getElementById("modaltxt").innerHTML=cad;
+	document.getElementById('divmodal').style.display="block";
+}
+function fconfirm(cad,f,p)
+{
+	document.getElementById("modaltxtconfirm").innerHTML=cad;
+	$("#btnmodalok").prop('onclick',null).off('click');	$("#btnmodalok").click(function() {
+		$('#divmodalconfirm').hide();
+				if(f.indexOf('@')!=-1)
+		{
+			f=f.split("@");
+			if(f.length==3){self.frames[f[0]][f[1]][f[2]](p);}
+			else if(f.length==2){self.frames[f[0]][f[1]](p);};
+		}
+		else
+		{
+    		window[f](p);
+    	};
+  	});
+	document.getElementById('divmodalconfirm').style.display="block";
+}
+</script> 
+ </head> 
+ <body style="margin:0px;"> 
+  <table width="100%" cellpadding="0" cellspacing="0"> 
+   <tbody>
+    <tr> 
+     <td style="background-color:#333333;height:10px;"></td> 
+    </tr> 
+   </tbody>
+  </table> 
+  <header> 
+   <table width="100%"> 
+    <tbody>
+     <tr> 
+      <td> 
+       <table> 
+        <tbody>
+         <tr> 
+          <td><img src="https://www.socialcreator.com/app-creator/social-creator.jpg" style="width:322px;height:63px;vertical-align:bottom;"></td> 
+          <td width="10"></td> 
+          <td valign="bottom" style="font-family:Verdana;color:#666666;font-weight:bold;font-size:18px;font-style:italic;">Make your app for all devices</td> 
+         </tr> 
+        </tbody>
+       </table> </td> 
+      <td valign="bottom" align="right" style="font-family:Verdana;"><select name="sel_idioma" onchange="fidioma();" id="sel_idioma"> <option value="en" selected>English</option> <option value="es">Spanish</option> </select></td> 
+     </tr> 
+     <tr> 
+      <td colspan="2" style="background-color:#eeeeee;"> 
+       <table border="0" cellpadding="0" cellspacing="0"> 
+        <tbody>
+         <tr> 
+          <td align="center"> 
+           <table class="boton_menu" style="background-color:#BBDEFB;" cellpadding="7" onclick="self.location='./intra.php?idioma=en&amp;idsesion=n9eaci62jk3q54uomtx80vgws1dhzrbyf7lp&amp;pag=2';"> 
+            <tbody>
+             <tr> 
+              <td>Applications</td> 
+             </tr> 
+            </tbody>
+           </table> </td> 
+          <td style="width:1px"></td> 
+          <td align="center"> 
+           <table class="boton_menu" cellpadding="7" onclick="self.location='./intra.php?idioma=en&amp;idsesion=n9eaci62jk3q54uomtx80vgws1dhzrbyf7lp&amp;pag=3';"> 
+            <tbody>
+             <tr> 
+              <td>Your details</td> 
+             </tr> 
+            </tbody>
+           </table> </td> 
+          <td style="width:1px"></td> 
+          <td align="center"> 
+           <table class="boton_menu" cellpadding="7" onclick="self.location='./intra.php?idioma=en&amp;idsesion=n9eaci62jk3q54uomtx80vgws1dhzrbyf7lp&amp;pag=5';"> 
+            <tbody>
+             <tr> 
+              <td>Support</td> 
+             </tr> 
+            </tbody>
+           </table> </td> 
+          <td style="width:20px;"></td> 
+          <td><a href="https://www.socialcreator.com/social-creator.php?idioma=en"><img src="https://www.socialcreator.com/app-creator/logout.png" width="24" height="24" style="border:0px;position:relative;top:2px;"></a></td> 
+         </tr> 
+        </tbody>
+       </table> </td> 
+     </tr> 
+    </tbody>
+   </table> 
+  </header> 
+  <div id="divmodal" class="modal" style="display:none;" onclick="this.style.display='none';"> 
+   <div class="modal-content"> 
+    <span class="close">×</span> 
+    <p id="modaltxt"></p> 
+   </div> 
+  </div> 
+  <div id="divmodalconfirm" style="display:none;" class="modal"> 
+   <div class="modal-content"> 
+    <p id="modaltxtconfirm"></p> 
+    <button class="guardar" id="btnmodalok">OK</button> 
+    <button class="cancelar" style="margin-left:10px;" onclick="$('#divmodalconfirm').hide();">Cancel</button> 
+   </div> 
+  </div> 
+  <script language="javascript">
+var sec_sel="";
+$(document).ready(function(){
+			$("#gen").click(function() {fsel("gen");});
+			$("#gen_nombre").click(function(){abrir_fr("./app_gen_nombre.php","gen_nombre");});			$("#gen_gen").click(function(){abrir("./app_gen_gen.php","gen_gen");});													$("#gen_dis").click(function() {fsel("gen_dis");});
+					$("#gen_icohome").click(function(){abrir_fr("./app_gen_icohome.php","gen_icohome");});
+					$("#gen_pie").click(function(){abrir("./app_gen_pie.php","gen_pie");});
+										$("#gen_fondo").click(function(){abrir_fr("./app_gen_fondo.php","gen_fondo");});
+					$("#gen_menu").click(function(){abrir("./app_gen_menu.php","gen_menu");});
+					$("#gen_colores").click(function(){abrir("./app_gen_colores.php","gen_colores");});
+			   
+			$("#sec").click(function() {abrir("./app_sec_lista.php","sec");});
+		
+			$("#mensajes").click(function() {abrir("./app_envios_lista.php","mensajes");});
+		
+		
+	
+			$("#estads").click(function() {abrir("./app_estads.php","estads");});
+	
+	$(function() {
+	    $(".boton_menu_v").hover(
+	    function() {
+	        $(this).css('background-color', '#eeeeee')
+	    }, function() {
+	    	if(this.id!=sec_sel){$(this).css('background-color', '');}
+	    });
+	});
+
+});
+
+function fsel(id) {
+if($("#"+id+"_txt").is(":visible"))
+{
+  	$("#f_"+id+"_nosel").show();
+  	$("#f_"+id+"_sel").hide();
+  	$("#"+id+"_txt").hide();
+}
+else
+{
+  	$("#f_"+id+"_nosel").hide();
+  	$("#f_"+id+"_sel").show();
+  	$("#"+id+"_txt").show();
+  }
+};
+
+function abrir(cad,idbtn)
+{
+	if(typeof idbtn!=="undefined")
+	{
+		sec_sel=idbtn;
+		$(".boton_menu_v").css('background-color', '#ffffff');
+		$("#"+idbtn).css('background-color', '#eeeeee');
+	}
+	var u=cad;
+	if(u.indexOf("?")==-1){u+="?";};
+	u+="&idioma=en&idsesion=n9eaci62jk3q54uomtx80vgws1dhzrbyf7lp&idapp=56792&ts="+(new Date().getTime());
+	$.get(u,function(result){fresult(result);});
+}
+function abrir_fr(cad,idbtn)
+{
+	if(typeof idbtn!=="undefined")
+	{
+		sec_sel=idbtn;
+		$(".boton_menu_v").css('background-color', '#ffffff');
+		$("#"+idbtn).css('background-color', '#eeeeee');
+	}
+	var u=cad;
+	if(u.indexOf("?")==-1){u+="?";};
+	u+="&idioma=en&idsesion=n9eaci62jk3q54uomtx80vgws1dhzrbyf7lp&idapp=56792&ts="+(new Date().getTime());
+		var inst=CKEDITOR.instances["editor1"];
+	if(inst){try{inst.destroy();}catch(err){};};
+	$("#cont").html("<iframe id='ifrprinc' name='ifrprinc' frameborder='0' src='"+u+"' width='800'></iframe>");
+}
+
+function fresult(result)
+{
+	if(result.indexOf("-SESIONKO-")!=-1)
+	{
+		self.location="../social-creator.php?idioma=en&idsesion=n9eaci62jk3q54uomtx80vgws1dhzrbyf7lp&pag=1";
+	}
+	else
+	{
+				var inst=CKEDITOR.instances["editor1"];
+		if(inst){try{inst.destroy();}catch(err){};};
+		$("#cont").html(result);
+	}
+}
+
+function fcerrarconsejos(modo)
+{
+	if(modo==1)
+	{
+		$("#tconsejos").hide();
+		$("#tconsejosundo").show();
+	}
+	else if(modo==0)
+	{
+		$("#tconsejosundo").hide();
+		$("#tconsejos").show();
+	}
+	$.get("./consejos_ocultar.php?idioma=en&idsesion=n9eaci62jk3q54uomtx80vgws1dhzrbyf7lp&modo="+modo+"&ts="+(new Date().getTime()));
+}
+</script> 
+  <table class="titulo_sec"> 
+   <tbody>
+    <tr> 
+     <td><a href="./intra.php?idioma=en&amp;idsesion=n9eaci62jk3q54uomtx80vgws1dhzrbyf7lp&amp;pag=2" style="text-decoration:none;color:#999999;">Applications</a> &gt; Westsands Holidays</td> 
+    </tr> 
+   </tbody>
+  </table> 
+  <table> 
+   <tbody>
+    <tr> 
+     <td style="vertical-align:top;"> 
+      <table class="menu_v" cellspacing="0" cellpadding="3"> 
+       <tbody>
+        <tr id="gen" style="cursor:pointer;"> 
+         <td>
+          <div id="f_gen_nosel">
+           <img src="https://www.socialcreator.com/app-creator/desplegable.gif" border="0" width="12" height="12">
+          </div>
+          <div id="f_gen_sel" style="display:none;">
+           <img src="https://www.socialcreator.com/app-creator/desplegado.gif" border="0" width="12" height="12">
+          </div></td> 
+         <td>General info</td> 
+        </tr> 
+        <tr id="gen_txt" style="display:none"> 
+         <td></td> 
+         <td> 
+          <table border="0" cellspacing="0" cellpadding="2"> 
+           <tbody>
+            <tr id="gen_nombre" class="boton_menu_v">
+             <td></td>
+             <td>General</td>
+            </tr> 
+            <tr id="gen_dis" style="cursor:pointer"> 
+             <td>
+              <div id="f_gen_dis_nosel">
+               <img src="https://www.socialcreator.com/app-creator/desplegable.gif" border="0" width="12" height="12">
+              </div>
+              <div id="f_gen_dis_sel" style="display:none;">
+               <img src="https://www.socialcreator.com/app-creator/desplegado.gif" border="0" width="12" height="12">
+              </div></td> 
+             <td>Design</td> 
+            </tr> 
+            <tr id="gen_dis_txt" style="display:none"> 
+             <td></td> 
+             <td> 
+              <table border="0"> 
+               <tbody>
+                <tr id="gen_colores" class="boton_menu_v">
+                 <td>General style</td>
+                </tr> 
+                <tr id="gen_menu" class="boton_menu_v">
+                 <td>Menu type</td>
+                </tr> 
+                <tr id="gen_icohome" class="boton_menu_v">
+                 <td>Header</td>
+                </tr> 
+                <tr id="gen_pie" class="boton_menu_v">
+                 <td>Footer</td>
+                </tr> 
+                <tr id="gen_fondo" class="boton_menu_v">
+                 <td>Background image</td>
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+           </tbody>
+          </table> </td> 
+        </tr> 
+        <tr>
+         <td colspan="2" class="sep_h"></td>
+        </tr> 
+        <tr id="sec" class="boton_menu_v"> 
+         <td></td> 
+         <td>Sections</td> 
+        </tr> 
+        <tr>
+         <td colspan="2" class="sep_h"></td>
+        </tr> 
+        <tr id="mensajes" class="boton_menu_v"> 
+         <td></td> 
+         <td>Send messages</td> 
+        </tr> 
+        <tr>
+         <td colspan="2" class="sep_h"></td>
+        </tr> 
+        <tr id="estads" class="boton_menu_v"> 
+         <td></td> 
+         <td>Statistics</td> 
+        </tr> 
+        <tr>
+         <td colspan="2" class="sep_h"></td>
+        </tr> 
+       </tbody>
+      </table> 
+      <table align="center" style="border:0px;margin-top:15px;"> 
+       <tbody>
+        <tr>
+         <td><a href="https://www.socialcreator.com/westsandsholidays" target="_blank"><img src="https://www.socialcreator.com/app-creator/abrir_web.jpg" style="border:0px;width:94px;height:95px;"></a></td>
+        </tr> 
+       </tbody>
+      </table> </td> 
+     <td class="sep_v"></td> 
+     <td style="vertical-align:top;"> 
+      <div id="cont"> 
+       <span style="color:#494949;font-family:arial;">&lt;&lt;&nbsp;Select an option</span> 
+       <table id="tconsejos" class="gnow" style="margin-top:20px;width:400px;"> 
+        <tbody>
+         <tr> 
+          <td class="gnow_tit">Tips</td> 
+          <td style="font-size:x-small;text-align:right;"><a style="color:#333333;" href="javascript:var v=fcerrarconsejos(1);">Don't show again</a></td> 
+         </tr> 
+         <tr>
+          <td colspan="2" style="height:5px;"></td>
+         </tr> 
+         <tr>
+          <td colspan="2" class="gnow_subtit">Customize sections and design</td>
+         </tr> 
+         <tr>
+          <td colspan="2">From 'Sections' create and manage sections of the app. Choose colors for each section or select a global style on 'General info'. Customize also header and menu.</td>
+         </tr> 
+         <tr>
+          <td colspan="2" style="height:10px;"></td>
+         </tr> 
+         <tr>
+          <td colspan="2" class="gnow_subtit">Put the app on your website, blog or native app</td>
+         </tr> 
+         <tr>
+          <td colspan="2">If you have a website, blog or native app you can add content to it adding a link to your webapp.</td>
+         </tr> 
+         <tr>
+          <td colspan="2" style="height:10px;"></td>
+         </tr> 
+         <tr>
+          <td colspan="2" class="gnow_subtit">Take advantage of sending messages(notifications)</td>
+         </tr> 
+         <tr>
+          <td colspan="2">From 'Send messages' you can send messages directly to devices of all your users. This allows you to send news, promotions, etc.. immediately.</td>
+         </tr> 
+         <tr>
+          <td colspan="2" style="height:10px;"></td>
+         </tr> 
+        </tbody>
+       </table> 
+       <table id="tconsejosundo" class="gnow" style="display:none;margin-top:20px;"> 
+        <tbody>
+         <tr> 
+          <td style="font-size:x-small;"><a style="color:#333333;" href="javascript:var v=fcerrarconsejos(0);">Undo</a></td> 
+          <td><img src="https://www.socialcreator.com/app-creator/deshacer.png" style="border:0px;width:13px;height:12px;"></td> 
+         </tr> 
+        </tbody>
+       </table> 
+      </div> </td> 
+    </tr> 
+   </tbody>
+  </table> 
+  <footer> 
+   <div class="pie"> 
+    <table style="border-width:0px;"> 
+     <tbody>
+      <tr> 
+       <td><img src="https://www.socialcreator.com/app-creator/html5.png" style="border:0px;" width="64" height="64"></td> 
+       <td>2022 SocialCreator.com | <span style="color:#000000;">Vinebre</span><span style="color:#cc3333">Software</span></td> 
+      </tr> 
+     </tbody>
+    </table> 
+   </div> 
+  </footer> 
+ </body>
+</html>
